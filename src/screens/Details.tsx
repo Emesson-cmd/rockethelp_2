@@ -30,8 +30,8 @@ export function Details() {
   const [order, setOrder] = useState<OrderDetails>({} as OrderDetails);
   const route = useRoute();
   const { orderId } = route.params as RoutesParams
-  const { colors } = useTheme()
   const navigation = useNavigation()
+  const { colors } = useTheme()
 
   function handleOrderClose() {
     if (!solution) {

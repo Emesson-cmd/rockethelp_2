@@ -5,8 +5,7 @@ import { THEME } from './src/styles/theme'
 
 import { Routes } from    './src/routes'
 import { Loading } from './src/components/loading';
-import SignIn from './src/screens/SignIn'
-
+ 
 import {Text, View} from 'react-native'
 
 export default function App() {

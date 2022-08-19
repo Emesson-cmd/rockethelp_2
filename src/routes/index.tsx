@@ -12,12 +12,10 @@ export function Routes(){
     const [user, setUser] = useState<FirebaseAuthTypes.User>()
 
     useEffect(() => {
-        console.log("Iniciou o index")
         const subscriber = auth()
         .onAuthStateChanged(response => {
             setUser(response);
             setIsLoading(false);
-            console.log("Usuário Logou!")
         })
 
         return subscriber

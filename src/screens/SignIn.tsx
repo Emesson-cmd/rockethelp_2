@@ -1,13 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {Alert} from 'react-native'
 import auth from  '@react-native-firebase/auth'
 import { VStack, Heading, Icon, useTheme } from 'native-base'
 import { Envelope, Key } from 'phosphor-react-native'
-
+import { useNavigation } from '@react-navigation/native'
 import Logo from '../assets/logo_primary.svg'
 
 import { Input } from "../components/Input"
 import { Button } from '../components/Button'
+
+import SignUp from './SignUp'
 
 
 function SignIn(){
@@ -15,6 +17,7 @@ function SignIn(){
     const { colors } = useTheme();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const navigation = useNavigation();
 
     function handleSignIn(){
         if (!email || !password){
@@ -45,6 +48,15 @@ function SignIn(){
 
         })
     }
+
+    function handleSignUp(){
+        //navigation.navigate('signup')
+        navigation.navigate('teste')
+    }  
+    
+    useEffect(() => {
+
+    }, [])
     
     return (
         
@@ -72,8 +84,19 @@ function SignIn(){
 
             <Button 
                 title="Entrar" 
+                mb={6}
                 w="full" 
                 onPress={handleSignIn}
+                isLoading={isLoading}
+            />
+
+            <Button 
+                title="Cadastre-se" 
+                w="full" 
+                bg='black'
+                borderColor={'green.700'}
+                borderWidth={2}
+                onPress={handleSignUp}
                 isLoading={isLoading}
             />
 
